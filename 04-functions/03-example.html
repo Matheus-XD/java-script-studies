@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+
+    function convertTemperature(temperature, type){
+      
+      if (type === 'F') {
+        temperature = (temperature - 32) * 5/9;
+        return temperature + '°C';  
+      } else if (type === 'C') {
+        temperature = (temperature * 9/5) + 32;
+        return temperature + '°F';
+      }
+    }
+       
+    alert(convertTemperature(86,'F'));
+    
+    
+   
+    
+    
+  </script>
+</body>
+</html>
