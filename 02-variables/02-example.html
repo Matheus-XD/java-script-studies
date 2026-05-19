@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  
+  <button onclick="cost += coffee; console.log(`A cup of coffee costing $${coffee} has been add to the bill`)">
+    add coffee
+  </button>
+  <button onclick="cost += bagel; console.log(`A bagel consting $${bagel} has been add to the bill`)">
+    add bagel
+  </button>
+  <button onclick="cost += soup; console.log(`a soup costing $${soup} has been add to the bill`)">
+    add soup
+  </button>
+  <button onclick="tax = cost * 0.1; totalCost = cost + tax; console.log(`Cost: $${cost} \nTax: $${tax} \nTotal cost $${totalCost}`)">
+    show total cost
+  </button>
+
+  <script>
+    
+    let coffee = 5;
+    let bagel = 3;
+    let soup = 9;
+
+    cost = 0;
+    let tax = 0;
+    let totalCost = 0;
+
+
+  </script>
+</body>
+</html>
