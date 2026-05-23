@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>calculator</title>
+</head>
+<body>
+    <!-- 8h-->
+
+
+
+  <button onclick="
+    pickItem('1');
+    ">
+    1
+  </button>
+  <button onclick="
+    pickItem('2')
+    ">
+    2
+  </button>
+  <button onclick="
+    pickItem('3')
+    ">
+    3
+  </button>
+  <button onclick="
+    pickItem(' + ')
+  ">
+    +
+  </button>
+  <div>
+    <button onclick="
+      pickItem('4')
+    ">
+    4
+    </button>
+    <button onclick="
+      pickItem('5')
+    ">
+    5
+    </button>
+    <button onclick="
+      pickItem('6')
+    ">
+    6
+    </button>
+    <button onclick="
+      pickItem(' - ')
+    ">
+    -
+    </button>
+  </div>
+  <div>
+    <button onclick="
+      pickItem('7')
+    ">
+    7
+    </button>
+    <button onclick="
+      pickItem('8')
+    ">
+    8
+    </button>
+    <button onclick="
+      pickItem('9')
+    ">
+    9
+    </button>
+    <button onclick="
+      pickItem(' * ')
+    ">
+    *
+    </button>
+    
+  </div>
+  <div>
+    <button onclick="
+      pickItem('0')
+    ">
+    0
+    </button>
+    <button onclick="
+      pickItem('.')
+    ">
+    .
+    </button>
+    <button onclick="
+      convert(calculation)
+    ">
+    =
+    </button>
+    <button onclick="
+      pickItem(' / ')
+    ">
+    /
+    </button>
+  </div>
+  <button onclick="
+    reset();
+  ">
+    reset
+  </button>
+  
+
+  <script>
+    ///
+    
+    let calculation = localStorage.getItem('calculation') || '';
+    function pickItem(item) {
+      calculation += item; 
+      localStorage.setItem('calculation', calculation);
+      console.log(calculation);
+        
+    }
+    function convert(calculationString) {    
+      calculation = eval(calculationString);
+      console.log(calculation);
+      
+    }
+    
+    function reset() {
+      localStorage.removeItem('calculation')
+      calculation = '';
+    }
+    
+
+  </script>
+</body>
+</html>
