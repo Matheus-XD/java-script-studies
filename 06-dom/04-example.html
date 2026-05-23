@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!--9d, 9e-->
+
+  <input class="input-name" type="text" placeholder="name" onkeydown="
+  showResultEnter(event);
+  ">
+  <button class="submit-button" onclick="
+    showResult();
+  ">
+    submit
+  </button>
+  <p class="result"></p>
+
+  <script>
+    function showResult() {
+      const input = document.querySelector('.input-name');
+      const result = document.querySelector('.result');
+      
+      result.innerText = 'Your name is ' + input.value;
+    }
+
+    function showResultEnter(event) {
+      if (event.key === 'Enter') {
+        showResult();
+        
+      }
+    }
+
+  </script>
+</body>
+</html>

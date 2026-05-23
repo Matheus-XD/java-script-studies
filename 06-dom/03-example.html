@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!--9a, 9b-->
+
+  <button class="button-1">9a</button>
+  <button class="button-2">9b</button>
+
+  <script>
+    console.log(document.querySelector('.button-1').innerHTML); 
+    document.querySelector('.button-2').innerText = '9b done';
+  </script>
+  
+  <!--9c-->
+
+  <p></p>
+  <button class="heads" onclick="showChoice('heads')">
+    heads
+  </button>
+  <button class="tails" onclick="showChoice('tails')">
+    tails
+  </button>
+  <p class="choice"></p>
+
+  <script>
+    function showChoice(choise) {
+      document.querySelector('.choice').innerText = 'you chose: ' + choise;
+    } 
+  </script>
+
+
+
+</body>
+</html>

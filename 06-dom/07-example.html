@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!--9i-->
+
+  
+  <button onclick="addToCart(1)">
+    add to cart
+  </button>
+  <button onclick="addToCart(2)">
+    +2
+  </button>
+  <button onclick="addToCart(3)">
+    +3
+  </button>
+  <button onclick="removeFromCart(1)">
+    remove from cart
+  </button>
+  <button onclick="removeFromCart(2)">
+    -2
+  </button>
+  <button onclick="removeFromCart(3)">
+    -3
+  </button>
+  <p>
+    cart quantity: <span class="cartQuantity"></span>
+  </p>
+
+
+  <script>
+    let cartQuantity = JSON.parse(localStorage.getItem('cartQuantity'))|| 0;
+    display();
+    function addToCart(quantity) {
+      if ((cartQuantity + quantity) > 10) {
+        alert(`You can't add ${quantity} more items, the maximum storage is 10 items`);
+      } else {
+        cartQuantity += quantity;
+      }
+      display();
+      
+    }
+
+    function removeFromCart(quantity) {
+      if ((cartQuantity - quantity) < 0) {
+        cartQuantity = 0;
+      } else {
+        cartQuantity -= quantity;
+      }
+      display();
+    }
+
+    function display() {
+      document.querySelector('.cartQuantity').innerText = cartQuantity;
+      localStorage.setItem('cartQuantity', JSON.stringify(cartQuantity)) 
+    }
+    
+    
+  </script>
+</body>
+</html>
