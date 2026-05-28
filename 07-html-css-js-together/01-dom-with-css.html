@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dom with css</title>
+  <style>
+    body{
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .css-subscribe-button{
+      padding: 8px 16px;
+      font-weight: 600;
+      color: white;
+      background-color: red;
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+    }
+    .is-subscribed{
+      background-color: gray;
+      color: white;
+    }
+    
+    .rps-title{
+      margin-top: 60px;
+    }
+
+    .calculator-title{
+      margin-top: 60px;
+    }
+
+    .input{
+      display: flex;
+      align-items: center;
+
+    }
+    .bar{
+      font-size: 15px;
+      padding: 10px;
+    
+      
+    }
+    .calculate{
+      font-size: 15px;
+      padding: 12px;
+      margin-left: 5px;
+      background-color: green;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+<body>
+
+  <p>Youtube Subscribe button</p>
+  <button class="css-subscribe-button js-subscribe-button" onclick="subscribe();">
+    Subscribe
+  </button>
+
+  <p class="rps-title">Rock paper and Scissors</p>
+  <a href="http://127.0.0.1:5500/06-dom/02-example.html">click here</a>
+
+  <p class="calculator-title">Amazon Shipping Calculator</p>
+  <p>Order under $40 = +$10 shipping</p>
+  <p>Order over $40 = FREE shipping</p>
+
+  <div class="input">
+    <input class="js-bar bar" type="number" placeholder="cost of order"
+    onkeydown="
+      if (event.key === 'Enter') {
+        calculateShipping();
+      }
+    "
+    >
+    <button class="calculate" 
+    onclick="
+      calculateShipping();
+    "
+    >
+    calculate
+    </button>
+  </div>
+  <p class="result"></p>
+  
+
+  <script>
+    
+    function subscribe() {
+      const subscribeButton = document.querySelector('.js-subscribe-button');
+      if (subscribeButton.innerText === 'Subscribe') {
+        subscribeButton.innerText = 'Subscribed';
+        subscribeButton.classList.add('is-subscribed');
+      } else {
+        subscribeButton.innerText = 'Subscribe';
+        subscribeButton.classList.remove('is-subscribed');
+      }
+      
+      
+    }
+    
+    function calculateShipping() {
+      const result = document.querySelector('.result');
+
+      const bar = document.querySelector('.js-bar');
+      const cost = Number(bar.value);
+
+      if (cost < 40) {
+        result.innerText = '$' + (cost + 10);
+      } else if (!cost){
+        result.innerText = 'please enter a value';
+      } else {
+        result.innerText = '$'+ cost;
+      }  
+    }
+
+    function calculateShippingEnter(event) {
+      if (event.key === 'Enter') {
+        calculateShipping();
+      }
+    }
+
+    
+  </script>
+</body>
+</html>

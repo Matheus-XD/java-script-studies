@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      margin: 0;
+      min-height: 100vh;
+      background-color: rgb(100, 99, 99);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .calculator{
+      display: inline-flex;
+      flex-direction: column;
+      background-color: black;
+      padding: 20px;
+      border-radius: 20px;
+    }
+
+    .display{
+      border-style: solid;
+      border-color: white;
+      border-radius: 20px;
+      width: 1fr;
+      height: 100px;
+      display: flex;
+      align-items:center;
+      justify-content: end;
+      background-color: black;
+    }
+
+    .result{
+      margin-right: 30px;
+      color: white;
+      font-size: 60px;
+    }
+    .buttons{
+      margin-top: 30px;
+      display: flex;
+    }
+    .numbers{
+      
+      display: inline-grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      
+    }
+    
+    .number-buttons{
+      margin: 10px 5px;
+      font-size: 30px;
+      height: 90px;
+      width: 90px;
+      background-color: rgb(51, 51, 51);
+      color: white;
+      border-radius: 45px;
+      border-style: none;
+    }
+    .operations{
+      display: inline-flex;
+      flex-direction: column;
+    }
+    .operation-buttons{
+      margin: 10px 5px;
+      font-size: 30px;
+      height: 90px;
+      width: 90px;
+      background-color: rgb(254, 160, 10);
+      color: white;
+      border-radius: 45px;
+      border-style: none;
+    }
+
+    
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <div class="display">
+      <p class="result js-result">0</p>
+    </div>
+    <div class="buttons">
+      <div class="numbers">
+        <button class="number-buttons" onclick="
+          addtoCalation('1')">1</button>
+        <button class="number-buttons" onclick="
+        addtoCalation('2')">2</button>
+        <button class="number-buttons" onclick="
+        addtoCalation('3')">3</button>
+        <button class="number-buttons" onclick="
+        addtoCalation('4')">4</button>
+        <button class="number-buttons" onclick="
+        addtoCalation('5')">5</button>
+        <button class="number-buttons" onclick="
+        addtoCalation('6')">6</button>
+        <button class="number-buttons" onclick="
+        addtoCalation('7')">7</button>
+        <button class="number-buttons" onclick="
+        addtoCalation('8')">8</button>
+        <button class="number-buttons" onclick="
+        addtoCalation('9')">9</button>
+        <button class="number-buttons" onclick="
+        addtoCalation('0')">0</button>
+        <button class="number-buttons" onclick="
+        addtoCalation('.')">.</button>
+        <button class="number-buttons" onclick="
+        calculate();">=</button>
+        <button class="number-buttons" onclick="
+        clearCalculation();">clear</button>
+      </div>
+      <div class="operations">
+        <button class="operation-buttons" onclick="
+        addtoCalation(' + ')">+</button>
+        <button class="operation-buttons" onclick="
+        addtoCalation(' - ')">-</button>
+        <button class="operation-buttons" onclick="
+        addtoCalation(' * ')">*</button>
+        <button class="operation-buttons" onclick="
+        addtoCalation(' / ')">/</button>
+      </div>
+    </div>
+  </div> 
+
+  <script>
+    let calculation = '';
+    let result = document.querySelector('.js-result');
+    function addtoCalation(value) {
+      calculation += value;
+      result.innerText = calculation;
+    }
+
+    function calculate() {
+      calculation = eval(calculation)
+      result.innerText = calculation
+    }
+
+    function clearCalculation() { 
+      calculation = '';
+      result.innerText = '0';
+
+    }
+  </script>
+</body>
+</html>

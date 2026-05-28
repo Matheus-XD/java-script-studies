@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .button{
+      padding: 5px 10px;
+      border:none ;
+      border-radius: 5px;
+      background-color: rgb(202, 199, 199);
+    }
+
+    .onclick-button{
+      background-color: black;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <!-- 10d 10e 10f 10g-->
+
+  <button class="button gaming"
+  onclick="
+   selectButton('gaming');
+  ">
+    Gaming
+  </button>
+  <button class="button music"
+  onclick="
+   selectButton('music');
+  ">
+    Music
+  </button>
+
+  <button class="button tech"
+  onclick="
+   selectButton('tech');
+  ">
+    Tech
+  </button>
+
+  <script>
+    function selectButton(className) {
+      let button = document.querySelector(`.${className}`)
+
+      if (button.classList.contains('onclick-button')){
+        button.classList.remove('onclick-button');
+        
+      } else {
+        removePreviewsbutton();
+        button.classList.add('onclick-button');   
+      }
+    }
+
+    function removePreviewsbutton() {
+      const previewsButton = document.querySelector('.onclick-button');
+
+      if (previewsButton) {
+        previewsButton.classList.remove('onclick-button')
+      }
+    }
+  
+
+  </script>
+  
+</body>
+</html>
