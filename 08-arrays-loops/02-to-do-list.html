@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input class="input-text" type="text" placeholder="todo name">
+    <input class="input-date" type="date">
+    <button class="button add"
+    onclick="
+    getItem();
+    ">
+    Add
+    </button>
+    <div>
+        <p class="result-text">thing to do</p>
+        <p class="result-date">date</p>
+        <button class="remove-button">remove</button>
+
+    </div>
+    
+
+    <script>
+        let resultText = document.querySelector('.result-text');
+        let inputText = document.querySelector('.input-text')
+
+        function getItem() {
+            resultText.innerText = inputText.innerText;
+        }
+    </script>
+</body>
+</html>
