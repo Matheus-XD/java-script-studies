@@ -7,31 +7,73 @@
     <style>
         body{
             margin: 0;
-            padding: 0;
-            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: lightgray;
         }
         .input{
             display: flex;
-            flex-direction: row;
-            height: 40px;
-            
+            align-items: center;
+            justify-content: space-between;
+            width: 480px;          
         }
         .name{
-           font-size: 20px;
+            box-sizing: border-box;
+            border-style: solid;
+            border-radius: 10px;
+            border-width: 1px;
+            height: 50px;
+            width: 180px; 
+            font-size: 17px;    
+            
         }
         .date{
-            margin-left: 20px;
-            font-size: 20px;
+            border-style: solid;
+            border-radius: 10px;
+            border-width: 1px;
+            box-sizing: border-box;
+            height: 50px;
+            width: 150px;
+            font-size: 17px;
         }
         .button{
-            margin-left: 20px;
-            font-size: 20px;
-            width: 100px;      
+            height: 50px;
+            width: 120px;
+            font-size: 18px;
+            background-color: rgb(61, 209, 61);
+            border-width: 1px;
+            border-style: solid;
+            border-radius: 10px;
+            cursor: pointer;
         }
-
-        
         
 
+        .result{
+            margin-top: 20px;
+            width: 480px;
+            display: flex;
+            flex-direction: row;
+            flex: 180px 150px 120px ;
+            align-items: center;
+            justify-content: space-between;
+            
+        }
+        p{
+            font-size: 20px;
+        }
+        .result-name{
+            width: 180px;
+        }
+        .result-date{
+            width: 150px;
+            
+        }
+        .result .button{
+            background-color: red;
+            color: white;
+        }
+        
     </style>
 </head>
 <body>
@@ -44,15 +86,15 @@
     </div>
     
 
-    <div class="result js-todoList">
-        <p>do the laundry</p>
-        <p">02/06/2026</p>
-        <button>remove</button>    
+    <div class="js-todoList">  
+        
     </div>
     
 
     <script>
-        let todoList = []
+        let todoList = JSON.parse(localStorage.getItem('todoList')) || [];
+        renderHTML()
+        
         function addToList() {
             const todo = {
                 name: document.querySelector('.js-name-input').value,
@@ -61,23 +103,34 @@
             todoList.push(todo)
             console.log(todoList);
             renderHTML();
+            saveData();
         }
+        
+        function deleteFromList(index) {
+            todoList.splice(index, 1);
+            renderHTML();
+            saveData();
             
+        }
+
+        function saveData() {
+            localStorage.setItem('todoList', JSON.stringify(todoList))
+        }
 
         function renderHTML() {
             let htmlList = '';
             for (let i = 0; i < todoList.length; i++) {
                 htmlList += `
-                <p>${todoList[i].name}</p>
-                <p>${todoList[i].date}</p>
-                <button onclick = "
-                todoList.splice(${i}, 1);
-                renderHTML()
-
-                ">remove</button>
-                
+                <div class = "result">
+                    <p class="result-name">${todoList[i].name}</p>
+                    <p class="result-date">${todoList[i].date}</p>
+                    <button class="button" onclick = "
+                    deleteFromList(${i});
+                    ">remove</button>
+                </div>
              `}        
             document.querySelector('.js-todoList').innerHTML = htmlList;
+            
         }
         
 

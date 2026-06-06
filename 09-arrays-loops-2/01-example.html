@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    stringsArray = ['green', 'red', 'blue', 'red', 'green']
+
+    ///11o 11p
+    /*
+    stringsArray = ['run', 'search', 'fight', 'watch','search', 'walk']
+
+    for (let i = 0; i < stringsArray.length; i++) {
+      let word = stringsArray[i];
+      if (word === 'search') {
+        console.log(`Word "search" is in the ${i + 1}° position`);     
+      } else {
+        console.log(-1);
+        
+      }    
+    }
+    */
+
+    //11q
+    /*
+    function findIndex(array, word) {
+      let index = -1;
+      for (let i = 0; i < array.length; i++) {
+        if (array[i] === word) {
+          index = i
+          break
+        }
+      }
+      return index
+    }
+
+    console.log('index: ' + findIndex(stringsArray, 'search'));
+    */
+
+    //11v
+    /*
+    for (let i = 1; i <= 20; i++) {
+      
+      if ((i % 3 === 0) && (i % 5 === 0)) {
+        console.log('FizzBuzz');
+      } else if ((i % 3 === 0)&&(i % 5 !== 0)) {
+        console.log('Fizz');      
+      } else if ((i % 3 !== 0) &&(i % 5 === 0)){
+        console.log('Buzz');
+      } else {
+        console.log(i);      
+      }
+    }
+    */
+
+    //11w
+    function findIndex(array, word) {
+      let index = -1;
+      for (let i = 0; i < array.length; i++) {
+        if (array[i] === word) {
+          index = i
+          break
+        }
+      }
+      return index
+    }
+
+    function unique(array) {
+      let newArray = []
+      for (let i = 0; i < array.length; i++) {
+        const word = array[i];
+        if (findIndex(newArray, word) === -1) {
+          newArray.push(word)
+        }
+      }
+      return newArray;
+      
+    }
+    
+    console.log(stringsArray);
+    console.log(unique(stringsArray));
+    
+    
+    
+  </script>
+</body>
+</html>
