@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="showMessage()">
+        add to cart
+    </button>
+    <p class="js-message"></p>
+
+    <script>
+        let message = document.querySelector('.js-message');
+        function showMessage() {
+            message.innerText = 'Added'
+
+            clearTimeout(timeoutID)
+            
+            const timeoutID = setTimeout(() => {
+                message.innerText = ''
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
