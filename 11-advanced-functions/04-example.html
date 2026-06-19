@@ -6,17 +6,31 @@
     <title>Document</title>
 </head>
 <body>
-    <script>
 
+    <button onclick="add()">Add</button>
+    <button onclick="remove()">Remove</button>
+
+    <script>
+        //12g 12h
+
+        let qtd = 0
+        function add() {
+            qtd += 1
+        }
+        function remove() {
+            qtd -= 1
+        }
         function showname() {
             document.title = 'App'
         }
         function showMessages() {
-
-            document.title = '(2)messages'
+            document.title = `${qtd} messages`
         }
-        setInterval(showname, 2000)
-        setInterval(showMessages, 3000)
+        setInterval(showname, 4000)
+        setTimeout(() => {
+            setInterval(showMessages, 4000)
+        }, 2000);
+        
     </script>
 </body>
 </html>
